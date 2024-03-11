@@ -36,7 +36,13 @@ import { useCounterStore } from '@/stores/counter';
 
 import { ref, onMounted } from 'vue';
 
-const apiUrl = import.meta.env.VITE_DJANGOURL;
+let apiUrl = '';
+
+if (import.meta.env.MODE === 'development') {
+  apiUrl = import.meta.env.VITE_DJANGOURL;
+} else {
+  apiUrl = import.meta.env.PROD_DJANGOURL;
+}
 // Exportacion del componente principal
 export default {
   // Nombre del componente principal
