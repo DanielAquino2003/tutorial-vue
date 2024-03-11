@@ -56,7 +56,7 @@ export default {
 
     const listadoPersonas = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/personas/');
+        const response = await fetch(apiUrl);
         personas.value = await response.json();
       } catch (error) {
         console.error(error);
@@ -65,7 +65,7 @@ export default {
 
     const agregarPersona = async (persona) => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/personas/',
+        const response = await fetch(apiUrl,
           {
             method: 'POST',
             body: JSON.stringify(persona),
@@ -81,7 +81,7 @@ export default {
 
     const eliminarPersona = async (persona_id) => {
       try {
-        await fetch('http://127.0.0.1:8000/api/v1/personas/' + persona_id + '/',
+        await fetch(apiUrl + persona_id + '/',
           {
             method: "DELETE"
           });
@@ -93,7 +93,7 @@ export default {
 
     const actualizarPersona = async (id, personaActualizada) => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/personas/' + personaActualizada.id + '/',
+        const response = await fetch(apiUrl + personaActualizada.id + '/',
           {
             method: 'PUT',
             body: JSON.stringify(personaActualizada),
