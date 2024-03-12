@@ -39,9 +39,9 @@ import { ref, onMounted } from 'vue';
 let apiUrl = '';
 
 if (import.meta.env.MODE === 'development') {
-  apiUrl = import.meta.env.VITE_DJANGOURL;
+  apiUrl = import.meta.env.VITE_DJANGOURL_DEVELOPMENT;
 } else {
-  apiUrl = import.meta.env.PROD_DJANGOURL;
+  apiUrl = import.meta.env.VITE_DJANGOURL_PRODUCTION;
 }
 // Exportacion del componente principal
 export default {
